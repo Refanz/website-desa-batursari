@@ -12,20 +12,25 @@
 <body>
 
     <header>
-        @include('parts/user/navbar')
+        @include('parts.user.navbar')
     </header>
-
+    
+    @if(URL::current() == route('home'))
+        @include('parts.user.slides')
+    @endif
+    
     <div class="container">
         @yield('content')
     </div>
 
     <footer>
-
+        @include('parts.user.footer')
     </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
 </html>
 

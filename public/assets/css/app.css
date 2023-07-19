@@ -7,8 +7,9 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.active {
-    color: aqua;
+.nav-link.active {
+    font-weight: bold;
+    color: #00cccc !important;
 }
 
 @media screen and (min-width: 992px) {
@@ -16,3 +17,29 @@ body {
         display: none;
     }
 }
+
+.coursel-item {
+    height: 100vh;
+    min-height: 300px;
+}
+
+.carousel-caption {
+    bottom: 250px;
+}
+
+.carousel-caption h5 {
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.carousel-caption p {
+    width: 100%;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+
+
+
