@@ -37,6 +37,7 @@ body {
     margin: auto;
     font-size: 18px;
     line-height: 1.2;
+    color: #00cccc;
 }
 
 .carousel-inner::before {
@@ -50,7 +51,38 @@ body {
     z-index: 1;
 }
 
+.text-berita-1 {
+    color: #00cccc;
+}
 
+.card-link {
+    font-size: 13px;
+    color: #00cccc;
+    font-weight: bold;
+}
+
+.card-link a {
+    text-decoration: none;
+    color: #00cccc;
+}
+
+.card-link a:hover {
+    color: #32eded;
+}
+
+#galeri-desa {
+    background-color: #09eaea;
+}
+
+.img-galeri {
+    
+}
+
+@media screen and (min-width: 300px) {
+    #img-about {
+        width: 250px;
+    }
+}
 
 @media screen and (min-width: 992px) {
     .btn-navbar {
@@ -58,13 +90,7 @@ body {
     }
 
     #img-about {
-        max-width: 25vw;
-    }
-}
-
-@media screen and (min-width: 300px) {
-    #img-about {
-        width: 250px;
+        width: 300px;
     }
 }
 
