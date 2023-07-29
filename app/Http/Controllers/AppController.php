@@ -40,4 +40,11 @@ class AppController extends Controller
             'title' => 'kontak'
         ]);
     }
+
+    public function kegiatanDesa()
+    {
+        return view('pages.user.kegiatan-desa', [
+            'title' => 'kegiatan-desa'
+        ]);
+    }
 }

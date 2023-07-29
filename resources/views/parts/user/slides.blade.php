@@ -1,4 +1,4 @@
-<div id="myCarousel1" class="carousel slide" data-bs-ride="false">
+<div id="myCarousel1" class="carousel slide slideshow-desa" data-bs-ride="false">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="{{ asset('assets/images/sawah_desa_batursari.jpg') }}" height="700vh" class="d-block w-100" alt="...">

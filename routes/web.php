@@ -8,4 +8,5 @@ Route::get('/profile-desa', [AppController::class, 'profileDesa'])->name('profil
 Route::get('/berita-desa', [AppController::class, 'beritaDesa'])->name('beritaDesa');
 Route::get('/galeri', [AppController::class, 'galeri'])->name('galeri');
 Route::get('/kontak', [AppController::class, 'kontak'])->name('kontak');
+Route::get('/kegiatan-desa', [AppController::class, 'kegiatanDesa'])->name('kegiatanDesa');
 

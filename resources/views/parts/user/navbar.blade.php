@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light p-1 fixed-top">
+<nav class="navbar navbar-expand-lg bg-light p-1 fixed-top navbar-desa">
     <div class="container">
         <a class="navbar-brand d-flex" href="/">
             <img src="{{ asset('assets/images/logo_kabupaten_pekalongan.png') }}" alt="Kabupaten Pekalongan" width="40" height="45" class="d-inline-block align-text-top">
@@ -20,6 +20,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link @if($title == 'galeri') active @endif" href="/galeri">Galeri</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link @if($title == 'kegiatan-desa') active @endif" href="/kegiatan-desa">Kegiatan Desa</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link @if($title == 'kontak') active @endif" href="/kontak">Kontak</a>

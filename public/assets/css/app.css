@@ -7,15 +7,13 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.navbar {
-    top: 0;
-}
-
+/* Navbar CSS */
 .nav-link.active {
     font-weight: bold;
     color: #00cccc !important;
 }
 
+/* Coursel CSS */
 .coursel-item {
     height: 100vh;
     min-height: 300px;
@@ -51,6 +49,7 @@ body {
     z-index: 1;
 }
 
+/* Berita CSS */
 .text-berita-1 {
     color: #00cccc;
 }
@@ -70,19 +69,140 @@ body {
     color: #32eded;
 }
 
+/* Galeri CSS */
 #galeri-desa {
     background-color: #09eaea;
 }
 
-.img-galeri {
-    
+.row-galeri {
+    position: relative;
+}
+
+.col-galeri {
+    display: none;
+}
+
+.prev-galeri,
+.next-galeri {
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 18px;
+    width: auto;
+    user-select: none;
+    transition: 0.6s ease;
+    margin-top: -22px;
+}
+
+.next-galeri {
+    right: 0;
+}
+
+.prev-galeri:hover,
+.next-galeri:hover {
+    color: rgb(195, 190, 190);
+}
+
+.img-galeri {}
+
+/* Kegiatan Desa CSS */
+.slide-kegiatan {
+    display: none;
+}
+
+.slideshow-kegiatan {
+    max-width: 600px;
+    position: relative;
+    margin: auto;
+}
+
+.prev-kegiatan,
+.next-kegiatan {
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next-kegiatan {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev-kegiatan:hover,
+.next-kegiatan:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.text-kegiatan-desa {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.faded {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* Footer */
+#footer-desa {
+    position: relative;
+    bottom: 0;
+}
+
+.footer-text {
+    font-size: 13px;
+}
+
+/* Media Query */
+@media screen and (max-width: 394px) {
+    .footer-galeri {
+        width: 60px;
+    }
 }
 
 @media screen and (min-width: 300px) {
     #img-about {
         width: 250px;
     }
+
 }
+
+/* @media screen and (max-width: 767px) {
+    .col-galeri {
+        width: 100%;
+    }
+} */
+
 
 @media screen and (min-width: 992px) {
     .btn-navbar {
@@ -93,10 +213,3 @@ body {
         width: 300px;
     }
 }
-
-
-
-
-
-
-
