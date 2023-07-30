@@ -12,8 +12,17 @@
                 <li class="nav-item">
                     <a class="nav-link @if($title == 'home') active @endif" aria-current="page" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link @if($title == 'profile-desa') active @endif" href="/profile-desa">Profile Desa</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle @if($title == 'profil-desa') active @endif" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">Profile Desa</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item @if($title2 == 'profil-desa') active @endif" href="{{ route("profilDesa") }}">Profile Desa</a></li>
+                        <li><a class="dropdown-item @if($title2 == 'sejarah-desa') active @endif" href="{{ route("sejarahDesa") }}">Sejarah Desa</a></li>
+                        <li><a class="dropdown-item @if($title2 == 'visi-misi-desa') active @endif" href="{{ route("visiMisiDesa") }}">Visi dan Misi</a></li>
+                        <li><a class="dropdown-item @if($title2 == 'struktur-organisasi') active @endif" href="{{ route("strukturOrganisasi") }}">Struktur Organisasi</a></li>
+                        <li><a class="dropdown-item @if($title2 == 'profil-kepala-desa') active @endif" href="{{ route("profilKepalaDesa") }}">Profil Kepala Desa</a></li>
+                        <li><a class="dropdown-item @if($title2 == 'profil-perangkat-desa') active @endif" href="{{ route("profilPerangkatDesa") }}">Profil Perangkat Desa</a></li>
+                        <li><a class="dropdown-item @if($title2 == 'peta-desa') active @endif" href="{{ route("petaDesa") }}">Peta Desa</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link @if($title == 'berita-desa') active @endif" href="/berita-desa">Berita Desa</a>

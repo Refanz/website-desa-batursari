@@ -7,6 +7,11 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+#content-desa {
+    margin-top: 90px;
+    margin-bottom: 100px;
+}
+
 /* Navbar CSS */
 .nav-link.active {
     font-weight: bold;
@@ -144,8 +149,8 @@ body {
 
 .prev-kegiatan:hover,
 .next-kegiatan:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    color: rgb(195, 190, 190);
 }
 
 .text-kegiatan-desa {
@@ -158,7 +163,7 @@ body {
     text-align: center;
 }
 
-.faded {
+/* .faded {
     animation-name: fade;
     animation-duration: 1.5s;
 }
@@ -171,7 +176,7 @@ body {
     to {
         opacity: 1
     }
-}
+} */
 
 /* Footer */
 #footer-desa {
@@ -196,13 +201,6 @@ body {
     }
 
 }
-
-/* @media screen and (max-width: 767px) {
-    .col-galeri {
-        width: 100%;
-    }
-} */
-
 
 @media screen and (min-width: 992px) {
     .btn-navbar {

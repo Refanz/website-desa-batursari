@@ -13,7 +13,7 @@
                     <i class="bi bi-chat-left-text" style="font-size: 2rem; color: white;"></i>
                     <p class="text-white ms-2 mt-2">HUBUNGI KAMI</p>
                 </div> 
-                <p class="text-white footer-text">Jelun, Batursari, Kec. Talun, Kabupaten Pekalongan, Jawa Tengah 51192.</p>
+                <p class="text-white footer-text">Jelun, Batursari, Kecamatan Talun, Kabupaten Pekalongan, Jawa Tengah 51192.</p>
                 <p class="text-white footer-text">Telepon: 08xxxxxxx</p>
                 <p class="text-white footer-text">Email: batursari-talun@gmail.com</p>
             </div>
