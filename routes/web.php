@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AppController::class, 'index'])->name('home');
@@ -19,3 +21,9 @@ Route::get('/galeri', [AppController::class, 'galeri'])->name('galeri');
 Route::get('/kontak', [AppController::class, 'kontak'])->name('kontak');
 Route::get('/kegiatan-desa', [AppController::class, 'kegiatanDesa'])->name('kegiatanDesa');
 
+// Login Admin
+Route::get('/login', [AuthController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('auth');
+
+// Dashboard Admin
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
