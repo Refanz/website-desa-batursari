@@ -24,6 +24,7 @@ Route::get('/kegiatan-desa', [AppController::class, 'kegiatanDesa'])->name('kegi
 // Login Admin
 Route::get('/login', [AuthController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('auth');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Dashboard Admin
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');

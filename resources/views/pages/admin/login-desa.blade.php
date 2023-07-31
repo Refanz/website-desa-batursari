@@ -23,6 +23,12 @@
                             <div class="row justify-content-center">
                                 <img src="{{ asset('assets/images/logo_kabupaten_pekalongan.png') }}" style="width: 100px">
                             </div>
+                            @isset($login_error)
+                            <div class="alert alert-danger alert-dismissible fade show mt-2 text-center" role="alert">
+                                Username/password salah!
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            @endisset
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="name" class="form-label">Username</label>
