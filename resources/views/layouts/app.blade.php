@@ -15,20 +15,22 @@
     <header>
         @include('parts.user.navbar')
     </header>
-    
-    @if(URL::current() == route('home'))
+
+    <div class="landing-page">
+        @if(URL::current() == route('home'))
         @include('parts.user.slides')
         @include('parts.user.welcome')
         @include('parts.user.berita')
         @include('parts.user.galeri')
         @include('parts.user.kegiatan-desa')
-    @endif
-    
+        @endif
+    </div>
+
     <div class="container" id="content-desa">
         @yield('content')
     </div>
 
-    <footer>
+    <footer class="footer-user">
         @include('parts.user.footer')
     </footer>
 

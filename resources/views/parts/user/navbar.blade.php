@@ -10,31 +10,31 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link @if($title == 'home') active @endif" aria-current="page" href="/">Home</a>
+                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle @if($title == 'profil-desa') active @endif" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">Profile Desa</a>
+                    <a class="nav-link dropdown-toggle {{ Request::is('profil-desa') ? 'active' : '' }}" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">Profil Desa</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item @if($title2 == 'profil-desa') active @endif" href="{{ route("profilDesa") }}">Profile Desa</a></li>
-                        <li><a class="dropdown-item @if($title2 == 'sejarah-desa') active @endif" href="{{ route("sejarahDesa") }}">Sejarah Desa</a></li>
-                        <li><a class="dropdown-item @if($title2 == 'visi-misi-desa') active @endif" href="{{ route("visiMisiDesa") }}">Visi dan Misi</a></li>
-                        <li><a class="dropdown-item @if($title2 == 'struktur-organisasi') active @endif" href="{{ route("strukturOrganisasi") }}">Struktur Organisasi</a></li>
-                        <li><a class="dropdown-item @if($title2 == 'profil-kepala-desa') active @endif" href="{{ route("profilKepalaDesa") }}">Profil Kepala Desa</a></li>
-                        <li><a class="dropdown-item @if($title2 == 'profil-perangkat-desa') active @endif" href="{{ route("profilPerangkatDesa") }}">Profil Perangkat Desa</a></li>
-                        <li><a class="dropdown-item @if($title2 == 'peta-desa') active @endif" href="{{ route("petaDesa") }}">Peta Desa</a></li>
+                        <li><a class="dropdown-item {{ Request::is('profil-desa') ? 'active' : '' }}" href="{{ route("profilDesa") }}">Profil Desa</a></li>
+                        <li><a class="dropdown-item {{ Request::is('profil-desa/sejarah-desa') ? 'active' : '' }}" href="{{ route("sejarahDesa") }}">Sejarah Desa</a></li>
+                        <li><a class="dropdown-item {{ Request::is('profil-desa/visi-misi') ? 'active' : '' }}" href="{{ route("visiMisiDesa") }}">Visi dan Misi</a></li>
+                        <li><a class="dropdown-item {{ Request::is('profil-desa/struktur-organisasi') ? 'active' : '' }}" href="{{ route("strukturOrganisasi") }}">Struktur Organisasi</a></li>
+                        <li><a class="dropdown-item {{ Request::is('profil-desa/profil-kepala-desa') ? 'active' : '' }}" href="{{ route("profilKepalaDesa") }}">Profil Kepala Desa</a></li>
+                        <li><a class="dropdown-item {{ Request::is('profil-desa/profil-perangkat-desa') ? 'active' : '' }}" href="{{ route("profilPerangkatDesa") }}">Profil Perangkat Desa</a></li>
+                        <li><a class="dropdown-item {{ Request::is('profil-desa/peta-desa') ? 'active' : '' }}" href="{{ route("petaDesa") }}">Peta Desa</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if($title == 'berita-desa') active @endif" href="/berita-desa">Berita Desa</a>
+                    <a class="nav-link {{ Request::is('berita-desa') ? 'active' : '' }}" href="/berita-desa">Berita Desa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if($title == 'galeri') active @endif" href="/galeri">Galeri</a>
+                    <a class="nav-link {{ Request::is('galeri') ? 'active' : '' }}" href="/galeri">Galeri</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if($title == 'kegiatan-desa') active @endif" href="/kegiatan-desa">Kegiatan Desa</a>
+                    <a class="nav-link {{ Request::is('kegiatan-desa') ? 'active' : '' }}" href="/kegiatan-desa">Kegiatan Desa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if($title == 'kontak') active @endif" href="/kontak">Kontak</a>
+                    <a class="nav-link {{ Request::is('kontak') ? 'active' : '' }}" href="/kontak">Kontak</a>
                 </li>
                 <a class="btn btn-outline-primary" type="button" href="/login">Login</a>
             </ul>

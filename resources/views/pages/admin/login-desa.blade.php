@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container p-5">
-        <form action="{{ route('auth') }}" method="POST" class="mt-5">
+        <form action="{{ route('auth') }}" method="POST" class="mt-4">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-md-5">

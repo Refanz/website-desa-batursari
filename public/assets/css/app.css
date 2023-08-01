@@ -177,9 +177,8 @@ body {
 } */
 
 /* Footer */
-#footer-desa {
-    position: relative;
-    bottom: 0;
+.footer-user {
+            
 }
 
 .footer-text {
