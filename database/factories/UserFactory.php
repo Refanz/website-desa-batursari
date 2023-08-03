@@ -21,7 +21,7 @@ class UserFactory extends Factory
             'name' => 'admin',
             'email' => 'admin-batursari@gmail.com',
             'email_verified_at' => now(),
-            'password' => '$2a$12$cFM8GwYgi/IqvvrzeJAeI.Y4m/lNx6ayaf.yabwPuYN./MjNLQOvG', // password
+            'password' => '$2a$12$P8UnCPbY.VT3tPNL21AgmO3GUyZIiYOy6O1DWBrdt.yZs6sSnLY1q', // password
             'remember_token' => Str::random(10),
         ];
     }

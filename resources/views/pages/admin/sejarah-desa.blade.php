@@ -8,5 +8,11 @@
     <li class="breadcrumb-item active" aria-current="page">Sejarah Desa</li>
 </ol>
 
+<div class="row">
+    <div class="col-md-12">
+        <label for=""></label>
+    </div>
+</div>
+
 
 @endsection

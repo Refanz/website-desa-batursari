@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\VisiMisi;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreVisiMisiRequest;
 use App\Http\Requests\UpdateVisiMisiRequest;
+use Illuminate\Support\Facades\Session;
 
 class VisiMisiController extends Controller
 {
@@ -47,7 +49,7 @@ class VisiMisiController extends Controller
         ]);
     }
 
-    public function showAdmin(VisiMisi $visiMisi) 
+    public function showAdmin(VisiMisi $visiMisi)
     {
         $data = VisiMisi::select('visi', 'misi')->first();
 
@@ -72,7 +74,31 @@ class VisiMisiController extends Controller
      */
     public function update(UpdateVisiMisiRequest $request, VisiMisi $visiMisi)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'visi-desa' => 'required',
+            'misi-desa' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return "gagal";
+        }
+
+        $data = VisiMisi::findOrFail(1);
+
+        if ($data) {
+            $data->visi = $request->input('visi-desa');
+            $data->misi = $request->input('misi-desa');
+
+            $data->save();
+
+            Session::flash('success');
+
+            return redirect()->back();
+        }
+
+        return view('pages.user.profil-desa.visimisi-desa')->with([
+            'error' => 'Data visi dan misi gagal diubah!'
+        ]);
     }
 
     /**

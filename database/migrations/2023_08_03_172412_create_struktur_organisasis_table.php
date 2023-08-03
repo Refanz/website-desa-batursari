@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tb_visi_misi', function (Blueprint $table) {
+        Schema::create('tb_struktur_organisasi', function (Blueprint $table) {
             $table->id();
-            $table->text('visi');
-            $table->text('misi');
+            $table->string('img_struktur_organisasi');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_visi_misi');
+        Schema::dropIfExists('tb_struktur_organisasi');
     }
 };

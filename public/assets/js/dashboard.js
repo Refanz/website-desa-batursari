@@ -15,3 +15,30 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+function previewImage(imgInput) {
+    document.getElementById(imgInput).addEventListener("change", function (event) {
+        const img = event.target.files[0];
+        const imgPreview = document.getElementById("img-preview");
+    
+        if (img) {
+            const reader = new FileReader();
+    
+            reader.onload = function () {
+                imgPreview.src = reader.result;
+                imgPreview.style.display = "block";
+            };
+    
+            reader.readAsDataURL(img);
+        } else {
+            imgPreview.src = "#";
+            imgPreview.style.display = "none";
+        }
+    });
+}
+
+previewImage('img-input');
+
+
+
+
