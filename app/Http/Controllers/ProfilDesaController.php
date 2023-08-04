@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProfilDesa;
-use App\Http\Requests\StoreProfilDesaRequest;
-use App\Http\Requests\UpdateProfilDesaRequest;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\StoreProfilDesaRequest;
+use App\Http\Requests\UpdateProfilDesaRequest;
 
 class ProfilDesaController extends Controller
 {
@@ -89,7 +90,9 @@ class ProfilDesaController extends Controller
                 return redirect()->back();
             } else {
                 $dataProfilDesa = $profilDesa->findOrFail($profilDesa->first()->id);
-                Storage::delete('public/img-profil-desa/' . $dataProfilDesa->img_desa);
+                
+                $path = public_path('img-profil-desa/'). $dataProfilDesa->img_desa;
+                File::delete($path);
 
                 $dataProfilDesa->img_desa = $imgName;
                 $dataProfilDesa->deskripsi = $request->input('deskripsi-desa');

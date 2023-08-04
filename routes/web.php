@@ -4,6 +4,7 @@ use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfilDesaController;
+use App\Http\Controllers\SejarahDesaController;
 use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,8 +12,11 @@ Route::get('/', [AppController::class, 'index'])->name('home');
 
 // Profil Desa
 Route::get('/profil-desa', [ProfilDesaController::class, 'show'])->name('profilDesa');
-Route::get('/profil-desa/sejarah-desa', [AppController::class, 'sejarahDesa'])->name('sejarahDesa');
 
+// Sejarah Desa
+Route::get('/profil-desa/sejarah-desa', [SejarahDesaController::class, 'show'])->name('sejarahDesa');
+
+// Visi Misi
 Route::get('/profil-desa/visi-misi', [VisiMisiController::class, 'show'])->name('visiMisiDesa');
 
 Route::get('/profil-desa/struktur-organisasi', [AppController::class, 'strukturOrganisasi'])->name('strukturOrganisasi');
@@ -33,7 +37,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Dashboard Admin
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
-Route::get('/dashboard/sejarah-desa', [DashboardController::class, 'sejarahDesa'])->middleware('auth')->name('sejarahDesaAdmin');
+
 Route::get('/dashboard/struktur-organisasi', [DashboardController::class, 'strukturOrganisasi'])->middleware('auth')->name('strukturOrganisasiAdmin');
 Route::get('/dashboard/profil-kepala-desa', [DashboardController::class, 'profilKepalaDesa'])->middleware('auth')->name('profilKepalaDesaAdmin');
 Route::get('/dashboard/profil-perangkat-desa', [DashboardController::class, 'profilPerangkatDesa'])->middleware('auth')->name('profilPerangkatDesaAdmin');
@@ -49,3 +53,7 @@ Route::post('/dashboard/visi-misi', [VisiMisiController::class, 'update'])->midd
 // Profil Desa Admin
 Route::get('/dashboard/profil-desa', [ProfilDesaController::class, 'index'])->middleware('auth')->name('profilDesaAdmin');
 Route::post('/dashboard/profil-desa', [ProfilDesaController::class, 'update'])->middleware('auth')->name('editDataProfilDesa');
+
+// Sejarah Desa Admin
+Route::get('/dashboard/sejarah-desa', [SejarahDesaController::class, 'index'])->middleware('auth')->name('sejarahDesaAdmin');
+Route::post('/dashboard/sejarah-desa', [SejarahDesaController::class, 'update'])->middleware('auth')->name('editDataSejarahDesa');

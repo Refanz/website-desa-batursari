@@ -185,6 +185,10 @@ body {
     font-size: 13px;
 }
 
+.desk-profil div {
+    width: 100%;
+}
+
 /* Media Query */
 @media screen and (max-width: 394px) {
     .footer-galeri {
