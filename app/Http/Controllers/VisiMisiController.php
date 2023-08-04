@@ -40,8 +40,11 @@ class VisiMisiController extends Controller
     public function show(VisiMisi $visiMisi)
     {
         $data = VisiMisi::select('visi', 'misi')->first();
+        $misi = [];
 
-        $misi = explode(",", $data->misi);
+        if (!$visiMisi->count() < 1) {
+            $misi = explode(",", $data->misi);
+        }
 
         return view('pages.user.profil-desa.visimisi-desa')->with([
             'misi' => $misi,
@@ -53,7 +56,11 @@ class VisiMisiController extends Controller
     {
         $data = VisiMisi::select('visi', 'misi')->first();
 
-        $misi = explode(",", $data->misi);
+        $misi = [];
+
+        if (!$visiMisi->count() < 1) {
+            $misi = explode(",", $data->misi);
+        }
 
         return view('pages.admin.visi-misi')->with([
             'misi' => $misi,
@@ -80,12 +87,21 @@ class VisiMisiController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return "gagal";
+            return redirect()->back()->withErrors($validator);
         }
 
-        $data = VisiMisi::findOrFail(1);
+        if ($visiMisi->count() < 1) {
+            $visiMisi->visi = $request->input('visi-desa');
+            $visiMisi->misi = $request->input('misi-desa');
 
-        if ($data) {
+            $visiMisi->save();
+
+            Session::flash('success');
+
+            return redirect()->back();
+        } else {
+            $data = $visiMisi->first();
+
             $data->visi = $request->input('visi-desa');
             $data->misi = $request->input('misi-desa');
 
@@ -95,10 +111,6 @@ class VisiMisiController extends Controller
 
             return redirect()->back();
         }
-
-        return view('pages.user.profil-desa.visimisi-desa')->with([
-            'error' => 'Data visi dan misi gagal diubah!'
-        ]);
     }
 
     /**

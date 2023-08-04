@@ -13,16 +13,19 @@
 <div class="visi-misi-desa">
     <div class="visi-desa">
         <h5 class="text-center mt-3">VISI DESA</h5>
-        <p>{{ $data->visi }}</p>
+        <p>@isset($data->visi){{ $data->visi }}@endisset</p>
     </div>
     <div class="misi-desa p-0">
         <h5 class="text-center mt-4">MISI DESA</h5>
         <ol type="1">
-            @foreach ($misi as $data)
-            <li>{{ $data }}</li>
-            @endforeach
+            @isset($misi)
+                @foreach ($misi as $data)
+                    <li>{{ $data }}</li>
+                @endforeach
+            @endisset
         </ol>
     </div>
 </div>
 
 @endsection
+

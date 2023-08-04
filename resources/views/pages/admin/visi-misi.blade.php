@@ -22,6 +22,16 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
+
+    @if($errors->any())
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @foreach ($errors->all() as $error)
+        {{ $error }}
+        @endforeach
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <div class="row">
         <div class="col-md-2">
             <h5>Visi</h5>
@@ -29,7 +39,7 @@
     </div>
     <div class="row">
         <div class="col-md-7">
-            <textarea name="visi-desa" id="" cols="70" rows="4" class="form-control" required>{{ $data->visi }}</textarea>
+            <textarea name="visi-desa" id="" cols="70" rows="4" class="form-control" required>@isset($data->visi) {{ $data->visi }}@endisset</textarea>
         </div>
     </div>
     <div class="row mt-4">
@@ -47,7 +57,7 @@
     </div>
     <div class="row">
         <div class="col-md-7">
-            <textarea name="misi-desa" id="" cols="50" rows="4" class="form-control" required>{{ implode(", ", $misi) }}</textarea>
+            <textarea name="misi-desa" id="" cols="50" rows="4" class="form-control" required>@isset($misi) {{ implode(", ", $misi) }} @endisset</textarea>
         </div>
     </div>
     <div class="row mt-4 mb-3">
