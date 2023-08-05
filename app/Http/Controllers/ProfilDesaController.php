@@ -90,8 +90,8 @@ class ProfilDesaController extends Controller
                 return redirect()->back();
             } else {
                 $dataProfilDesa = $profilDesa->findOrFail($profilDesa->first()->id);
-                
-                $path = public_path('img-profil-desa/'). $dataProfilDesa->img_desa;
+
+                $path = public_path('img-profil-desa/') . $dataProfilDesa->img_desa;
                 File::delete($path);
 
                 $dataProfilDesa->img_desa = $imgName;
