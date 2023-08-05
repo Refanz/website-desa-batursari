@@ -6,10 +6,15 @@
 
 <h4 class="fw-bold">STRUKTUR ORGANISASI PEMERINTAHAN DESA BATURSARI</h4>
 
-<div class="text-center mt-4">
-    @isset($dataStrukturOrganisasi)
+@if(isset($dataStrukturOrganisasi))
+    <div class="text-center mt-4">
         <img src="{{ asset('img-struktur-organisasi/' . $dataStrukturOrganisasi->img_struktur_organisasi) }}" alt="" width="100%">
-    @endisset
-</div>
+    </div>
+@else
+    <div style="margin-bottom: 100vh"></div>
+@endif
+
+
 
 @endsection
+

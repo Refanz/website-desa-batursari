@@ -14,7 +14,7 @@
     <div class="col-md-8">
         <div class="callout callout-info">
             <h4>Info Gambar</h4>
-            Gambar di bawah ini adalah gambar yang ditampilkan ke pengguna.
+            Gambar di bawah ini adalah gambar yang ditampilkan ke halaman struktur organisasi!
         </div>
     </div>
 </div>

@@ -52,6 +52,14 @@ function showGaleri() {
     img[i].style.display = "none";
   }
 
+  if (galeriIndex > img.length) {
+    galeriIndex = 1;
+  }
+
+  if (galeriIndex < 1) {
+    galeriIndex = img.length;
+  }
+
   if (window.screen.width <= 767) {
     if (galeriIndex > img.length) {
       galeriIndex = 1;
