@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PetaDesaController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\ProfilKepalaDesaController;
 use App\Http\Controllers\ProfilPerangkatDesaController;
@@ -34,7 +35,7 @@ Route::get('/profil-desa/profil-kepala-desa', [ProfilKepalaDesaController::class
 Route::get('/profil-desa/profil-perangkat-desa', [ProfilPerangkatDesaController::class, 'show'])->name('profilPerangkatDesa');
 
 // Peta Desa
-Route::get('/profil-desa/peta-desa', [AppController::class, 'petaDesa'])->name('petaDesa');
+Route::get('/profil-desa/peta-desa', [PetaDesaController::class, 'show'])->name('petaDesa');
 
 // Berita Desa
 Route::get('/berita-desa', [AppController::class, 'beritaDesa'])->name('beritaDesa');
@@ -56,8 +57,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Dashboard Admin
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
-
-Route::get('/dashboard/peta-desa', [DashboardController::class, 'petaDesa'])->middleware('auth')->name('petaDesaAdmin');
 Route::get('/dashboard/berita-desa', [DashboardController::class, 'beritaDesa'])->middleware('auth')->name('beritaDesaAdmin');
 Route::get('/dashboard/kegiatan-desa', [DashboardController::class, 'kegiatanDesa'])->middleware('auth')->name('kegiatanDesaAdmin');
 Route::get('/dashboard/galeri-desa', [DashboardController::class, 'galeriDesa'])->middleware('auth')->name('galeriDesaAdmin');
@@ -90,3 +89,7 @@ Route::get('/dashboard/edit-profil-perangkat-desa/{id}', [ProfilPerangkatDesaCon
 Route::post('/dashboard/edit-profil-perangkat-desa/{id}', [ProfilPerangkatDesaController::class, 'update'])->middleware('auth')->name('editProfilPerangkatDesaAdmin');
 Route::post('/dashboard/hapus-profil-perangkat-desa/{id}', [ProfilPerangkatDesaController::class, 'destroy'])->middleware('auth')->name('hapusProfilPerangkatDesaAdmin');
 Route::get('/dashboard/tampil-profil-perangkat-desa/{id}', [ProfilPerangkatDesaController::class, 'tampilDataPerangkatDesa'])->middleware('auth')->name('tampilProfilPerangkatDesaAdmin');
+
+// Peta Desa Admin
+Route::get('/dashboard/peta-desa', [PetaDesaController::class, 'index'])->middleware('auth')->name('petaDesaAdmin');
+Route::post('/dashboard/peta-desa/edit-peta-desa', [PetaDesaController::class, 'update'])->middleware('auth')->name('editPetaDesaAdmin');

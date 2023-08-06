@@ -9,13 +9,11 @@
 @if(isset($dataPetaDesa))
     <div class="peta-desa mt-3">
         <div class="col-md-12">
-            <img src="{{ asset('assets/images/peta-desa.png') }}" alt="" width="100%">
+            <img src="{{ asset('img-peta-desa/' . $dataPetaDesa->img_peta_desa) }}" alt="" width="100%">
         </div>
     </div>
 @else
     <div style="margin-bottom: 100vh"></div>
 @endif
-
-
 
 @endsection

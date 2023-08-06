@@ -8,7 +8,7 @@
 
 @if(isset($dataProfilKepalaDesa))
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <img src="{{ asset('img-profil-kepala-desa/' . $dataProfilKepalaDesa->img_kepala_desa) }}" alt="" width="100%">
         </div>
         <div class="col-md-6 mt-3 mt-md-0">

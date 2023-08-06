@@ -4,4 +4,10 @@
 
 @section('content')
 
+@if(isset($dataBeritaDesa))
+    
+@else
+    <div style="margin-bottom: 100vh"></div>
+@endif
+
 @endsection
