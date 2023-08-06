@@ -89,4 +89,4 @@ Route::post('/dashboard/tambah-profil-perangkat-desa', [ProfilPerangkatDesaContr
 Route::get('/dashboard/edit-profil-perangkat-desa/{id}', [ProfilPerangkatDesaController::class, 'edit'])->middleware('auth')->name('editProfilPerangkatDesaAdmin');
 Route::post('/dashboard/edit-profil-perangkat-desa/{id}', [ProfilPerangkatDesaController::class, 'update'])->middleware('auth')->name('editProfilPerangkatDesaAdmin');
 Route::post('/dashboard/hapus-profil-perangkat-desa/{id}', [ProfilPerangkatDesaController::class, 'destroy'])->middleware('auth')->name('hapusProfilPerangkatDesaAdmin');
-Route::get('/data-perangkat-desa/{id}', [ProfilKepalaDesaController::class, 'getDataById'])->middleware('auth')->name('getProfilPerangkatDesaById');
+Route::get('/dashboard/tampil-profil-perangkat-desa/{id}', [ProfilPerangkatDesaController::class, 'tampilDataPerangkatDesa'])->middleware('auth')->name('tampilProfilPerangkatDesaAdmin');

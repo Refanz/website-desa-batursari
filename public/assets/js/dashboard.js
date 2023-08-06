@@ -39,6 +39,10 @@ function previewImage(imgInput) {
 
 previewImage('img-input');
 
+function getData(event) {
+    console.log('d3d3');
+}
+
 
 
 

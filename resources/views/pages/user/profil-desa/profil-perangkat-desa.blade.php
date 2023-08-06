@@ -13,7 +13,7 @@
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="{{ asset('img-profil-perangkat-desa/' . $data->img_perangkat_desa) }}" class="img-fluid rounded-start" alt="...">
+                    <img src="{{ asset('img-profil-perangkat-desa/' . $data->img_perangkat_desa) }}" class="img-fluid rounded-start" alt="..." width="100%">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-5">
-                                <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalDetailPerangkatDesa" onclick="getData(event)" data-id={{ $data->id }}>Detail</button>
+                                <a href="{{ route('tampilProfilPerangkatDesaAdmin', $data->id ) }}" class="btn btn-primary">Detail</a>
                             </div>
                         </div>
                     </div>
@@ -46,25 +46,6 @@
     </div>
     @endforeach
 </div>
-
-<!-- Modal -->
-<div class="modal fade" id="modalDetailPerangkatDesa" tabindex="-1" aria-labelledby="modalDetailPerangkatDesaLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalDetailPerangkatDesaLabel">Detail Profil Perangkat Desa</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- EndModal -->
 
 @else
     <div style="margin-bottom: 100vh"></div>

@@ -30,18 +30,4 @@ function hapusPerangkatDesa(event) {
     })
 }
 
-function getData(event) {
-    console.log('d3d3');
-}
 
-function getProfilPerangkatDesa(event) {
-    event.preventDefault();
-
-
-    const idProfilPerangkatDesa = btnGetData.dataset.id;
-
-    console.log(idProfilPerangkatDesa);
-
-    //axios.get('/data-perangkat-desa/{id}')
-
-}

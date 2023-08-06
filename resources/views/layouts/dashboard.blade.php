@@ -42,6 +42,8 @@
 
     <script src="{{ asset('assets/js/data-tables.js') }}"></script>
 
+    <script src="{{ asset('assets/js/data-desa.js') }}"></script>
+
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js" integrity="sha256-mW1wrhuKp2Cl0DCVr/7+GTdl168ZrmB6FayoMAlSmH0=" crossorigin="anonymous"></script> --}}
 
     {{-- <script src="{{ asset('assets/js/myalert.js') }}"></script> --}}

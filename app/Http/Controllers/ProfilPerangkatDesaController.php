@@ -256,4 +256,13 @@ class ProfilPerangkatDesaController extends Controller
 
         return redirect()->back();
     }
+
+    public function tampilDataPerangkatDesa($id)
+    {
+        $data = ProfilPerangkatDesa::findOrFail($id);
+
+        return view('pages.user.perangkat-desa.tampil-data-profil-perangkat-desa')->with([
+            'dataProfilPerangkatDesa' => $data
+        ]);
+    }
 }

@@ -23,7 +23,7 @@
 
 <div class="card mb-4">
     <div class="card-header">
-        <i class="fas fa-table me-1"></i>
+        <i class="bi bi-table me-1"></i>
         Tabel Profil Perangkat Desa
     </div>
     <div class="card-body">
@@ -61,7 +61,7 @@
                     <td>{{ $data->no_sk }}</td>
                     <td><img src="@isset($data->img_perangkat_desa){{ asset('img-profil-perangkat-desa/' . $data->img_perangkat_desa) }}@endisset" alt="" width="200vw"></td>
                     <td>
-                        <div class="d-flex">
+                        <div class="d-flex mt-2">
                             <form action="{{ route('hapusProfilPerangkatDesaAdmin', $data->id) }}" method="POST">
                                 @csrf
                                 <button class="btn btn-danger me-2" type="submit" onclick="return confirm('Yakin untuk hapus {{ $data->nama }}?')">Hapus</button>
