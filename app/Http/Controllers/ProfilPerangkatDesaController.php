@@ -56,32 +56,53 @@ class ProfilPerangkatDesaController extends Controller
             return redirect()->back()->withErrors($validator);
         }
 
-        $imgPerangkatDesa = $request->file('img_perangkat_desa');
-        $imgName = time() . '.' . $imgPerangkatDesa->getClientOriginalExtension();
-        $imgPerangkatDesa->move(public_path('img-profil-perangkat-desa'), $imgName);
-
         $ttl = $request->input('tempat_lahir') . ', ' . $request->input('tanggal_lahir');
 
         $profilPerangkatDesa = new ProfilPerangkatDesa();
 
-        $profilPerangkatDesa->nama = $request->input('nama_lengkap');
-        $profilPerangkatDesa->tempat_tanggal_lahir = $ttl;
-        $profilPerangkatDesa->jenis_kelamin = $request->input('jenis_kelamin');
-        $profilPerangkatDesa->status = $request->input('status');
-        $profilPerangkatDesa->no_telp = $request->input('no_telepon');
-        $profilPerangkatDesa->nama_pasangan = $request->input('nama_pasangan');
-        $profilPerangkatDesa->jumlah_anak = $request->input('jumlah_anak');
-        $profilPerangkatDesa->jabatan = $request->input('jabatan');
-        $profilPerangkatDesa->no_sk = $request->input('no_sk');
-        $profilPerangkatDesa->pendidikan_formal = $request->input('pendidikan_formal');
-        $profilPerangkatDesa->alamat = $request->input('alamat');
-        $profilPerangkatDesa->img_perangkat_desa = $imgName;
+        if ($request->hasFile('img_perangkat_desa')) {
+            $imgPerangkatDesa = $request->file('img_perangkat_desa');
+            $imgName = time() . '.' . $imgPerangkatDesa->getClientOriginalExtension();
+            $imgPerangkatDesa->move(public_path('img-profil-perangkat-desa'), $imgName);
 
-        $profilPerangkatDesa->save();
+            $profilPerangkatDesa->nama = $request->input('nama_lengkap');
+            $profilPerangkatDesa->tempat_tanggal_lahir = $ttl;
+            $profilPerangkatDesa->jenis_kelamin = $request->input('jenis_kelamin');
+            $profilPerangkatDesa->status = $request->input('status');
+            $profilPerangkatDesa->no_telp = $request->input('no_telepon');
+            $profilPerangkatDesa->nama_pasangan = $request->input('nama_pasangan');
+            $profilPerangkatDesa->jumlah_anak = $request->input('jumlah_anak');
+            $profilPerangkatDesa->jabatan = $request->input('jabatan');
+            $profilPerangkatDesa->no_sk = $request->input('no_sk');
+            $profilPerangkatDesa->pendidikan_formal = $request->input('pendidikan_formal');
+            $profilPerangkatDesa->alamat = $request->input('alamat');
+            $profilPerangkatDesa->img_perangkat_desa = $imgName;
 
-        Session::flash('success');
+            $profilPerangkatDesa->save();
 
-        return redirect()->back();
+            Session::flash('success');
+
+            return redirect()->back();
+        } else {
+            $profilPerangkatDesa->nama = $request->input('nama_lengkap');
+            $profilPerangkatDesa->tempat_tanggal_lahir = $ttl;
+            $profilPerangkatDesa->jenis_kelamin = $request->input('jenis_kelamin');
+            $profilPerangkatDesa->status = $request->input('status');
+            $profilPerangkatDesa->no_telp = $request->input('no_telepon');
+            $profilPerangkatDesa->nama_pasangan = $request->input('nama_pasangan');
+            $profilPerangkatDesa->jumlah_anak = $request->input('jumlah_anak');
+            $profilPerangkatDesa->jabatan = $request->input('jabatan');
+            $profilPerangkatDesa->no_sk = $request->input('no_sk');
+            $profilPerangkatDesa->pendidikan_formal = $request->input('pendidikan_formal');
+            $profilPerangkatDesa->alamat = $request->input('alamat');
+            $profilPerangkatDesa->img_perangkat_desa = '';
+
+            $profilPerangkatDesa->save();
+
+            Session::flash('success');
+
+            return redirect()->back();
+        }
     }
 
     /**
@@ -91,7 +112,7 @@ class ProfilPerangkatDesaController extends Controller
     {
         $data = $profilPerangkatDesa->all();
 
-        return view('pages.admin.profil-perangkat-desa')->with([
+        return view('pages.user.profil-desa.profil-perangkat-desa')->with([
             'dataPerangkatDesa' => $data
         ]);
     }
@@ -133,7 +154,7 @@ class ProfilPerangkatDesaController extends Controller
             'no_sk' => 'required',
             'pendidikan_formal' => 'required',
             'alamat' => 'required',
-            'img_perangkat_desa' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+            'img_perangkat_desa' => 'image|mimes:jpeg,png,jpg,gif|max:1024'
         ]);
 
         if ($validator->fails()) {
@@ -226,8 +247,11 @@ class ProfilPerangkatDesaController extends Controller
     {
         $data = ProfilPerangkatDesa::findOrFail($id);
 
-        $data->delete();
+        $path = public_path('img-profil-perangkat-desa/') . $data->img_perangkat_desa;
+        File::delete($path);
 
+        $data->delete();
+        
         Session::flash('success');
 
         return redirect()->back();

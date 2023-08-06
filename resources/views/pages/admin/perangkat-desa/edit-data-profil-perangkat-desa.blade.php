@@ -130,7 +130,7 @@
     </div>
     <div class="row mt-2">
         <div class="col-md-5">
-            <button class="btn btn-primary" type="submit">Edit Profil Kepala Desa</button>
+            <button class="btn btn-primary" type="submit">Edit Profil Perangkat Desa</button>
         </div>
     </div>
 </form>

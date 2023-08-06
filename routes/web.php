@@ -31,7 +31,7 @@ Route::get('/profil-desa/struktur-organisasi', [StrukturOrganisasiController::cl
 Route::get('/profil-desa/profil-kepala-desa', [ProfilKepalaDesaController::class, 'show'])->name('profilKepalaDesa');
 
 // Profil Perangkat Desa
-Route::get('/profil-desa/profil-perangkat-desa', [AppController::class, 'profilPerangkatDesa'])->name('profilPerangkatDesa');
+Route::get('/profil-desa/profil-perangkat-desa', [ProfilPerangkatDesaController::class, 'show'])->name('profilPerangkatDesa');
 
 // Peta Desa
 Route::get('/profil-desa/peta-desa', [AppController::class, 'petaDesa'])->name('petaDesa');
@@ -89,3 +89,4 @@ Route::post('/dashboard/tambah-profil-perangkat-desa', [ProfilPerangkatDesaContr
 Route::get('/dashboard/edit-profil-perangkat-desa/{id}', [ProfilPerangkatDesaController::class, 'edit'])->middleware('auth')->name('editProfilPerangkatDesaAdmin');
 Route::post('/dashboard/edit-profil-perangkat-desa/{id}', [ProfilPerangkatDesaController::class, 'update'])->middleware('auth')->name('editProfilPerangkatDesaAdmin');
 Route::post('/dashboard/hapus-profil-perangkat-desa/{id}', [ProfilPerangkatDesaController::class, 'destroy'])->middleware('auth')->name('hapusProfilPerangkatDesaAdmin');
+Route::get('/data-perangkat-desa/{id}', [ProfilKepalaDesaController::class, 'getDataById'])->middleware('auth')->name('getProfilPerangkatDesaById');

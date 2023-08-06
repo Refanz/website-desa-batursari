@@ -14,6 +14,13 @@
     </div>
 </div>
 
+@if(Session::has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    Hapus data profil perangkat desa berhasil!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
@@ -52,20 +59,19 @@
                     <td>{{ $data->pendidikan_formal }}</td>
                     <td>{{ $data->jabatan }}</td>
                     <td>{{ $data->no_sk }}</td>
-                    <td><img src="{{ asset('img-profil-perangkat-desa/' . $data->img_perangkat_desa) }}" alt="" width="200vw"></td>
+                    <td><img src="@isset($data->img_perangkat_desa){{ asset('img-profil-perangkat-desa/' . $data->img_perangkat_desa) }}@endisset" alt="" width="200vw"></td>
                     <td>
                         <div class="d-flex">
                             <form action="{{ route('hapusProfilPerangkatDesaAdmin', $data->id) }}" method="POST">
                                 @csrf
-                                <button class="btn btn-danger me-2" type="submit">Hapus</button>
+                                <button class="btn btn-danger me-2" type="submit" onclick="return confirm('Yakin untuk hapus {{ $data->nama }}?')">Hapus</button>
                             </form>
-                            <a href="{{ route('editProfilPerangkatDesaAdmin', $data->id) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('editProfilPerangkatDesaAdmin', $data->id) }}" class="btn btn-primary btn-edit-perangkat-desa">Edit</a>
                         </div>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
-
         </table>
     </div>
 </div>

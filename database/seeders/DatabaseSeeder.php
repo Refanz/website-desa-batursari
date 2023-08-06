@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory()->create();
         \App\Models\VisiMisi::factory()->create();
+        \App\Models\ProfilPerangkatDesa::factory(10)->create();
     }
 }
