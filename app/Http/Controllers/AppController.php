@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BeritaDesa;
 use App\Models\GaleriDesa;
-use App\Models\KegiatanDesa;
 use App\Models\ProfilDesa;
+use App\Models\KegiatanDesa;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
@@ -14,11 +15,13 @@ class AppController extends Controller
         $dataGaleri = GaleriDesa::all();
         $dataKegiatan = KegiatanDesa::all();
         $dataProfilDesa = ProfilDesa::first();
+        $dataBeritaDesa = BeritaDesa::latest()->get();
 
         return view('pages.user.home')->with([
             'profilDesa' => $dataProfilDesa,
             'galeri' => $dataGaleri,
-            'kegiatan' => $dataKegiatan
+            'kegiatan' => $dataKegiatan,
+            'beritaDesa' => $dataBeritaDesa
         ]);
     }
 

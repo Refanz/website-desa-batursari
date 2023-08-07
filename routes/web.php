@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BeritaDesaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GaleriDesaController;
 use App\Http\Controllers\KegiatanDesaController;
@@ -40,7 +41,7 @@ Route::get('/profil-desa/profil-perangkat-desa', [ProfilPerangkatDesaController:
 Route::get('/profil-desa/peta-desa', [PetaDesaController::class, 'show'])->name('petaDesa');
 
 // Berita Desa
-Route::get('/berita-desa', [AppController::class, 'beritaDesa'])->name('beritaDesa');
+Route::get('/berita-desa', [BeritaDesaController::class, 'show'])->name('beritaDesa');
 
 // Galeri Desa
 Route::get('/galeri', [GaleriDesaController::class, 'show'])->name('galeri');
@@ -58,8 +59,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Dashboard Admin
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
-
-Route::get('/dashboard/berita-desa', [DashboardController::class, 'beritaDesa'])->middleware('auth')->name('beritaDesaAdmin');
 
 // Visi dan Misi Admin
 Route::get('/dashboard/visi-misi', [VisiMisiController::class, 'showAdmin'])->middleware('auth')->name('visiMisiAdmin');
@@ -109,3 +108,14 @@ Route::post('/dashboard/tambah-kegiatan-desa', [KegiatanDesaController::class, '
 Route::get('/dashboard/edit-kegiatan-desa/{id}', [KegiatanDesaController::class, 'edit'])->middleware('auth')->name('editKegiatanDesaAdmin');
 Route::post('/dashboard/edit-kegiatan-desa/{id}', [KegiatanDesaController::class, 'update'])->middleware('auth')->name('editKegiatanDesaAdmin');
 Route::post('/dashboard/hapus-kegiatan-desa/{id}', [KegiatanDesaController::class, 'destroy'])->middleware('auth')->name('hapusKegiatanDesaAdmin');
+
+// Berita Desa Admin
+Route::get('/dashboard/berita-desa', [BeritaDesaController::class, 'index'])->middleware('auth')->name('beritaDesaAdmin');
+Route::get('/dashboard/tambah-berita-desa', [BeritaDesaController::class, 'create'])->middleware('auth')->name('tambahBeritaDesaAdmin');
+Route::post('/dashboard/tambah-berita-desa', [BeritaDesaController::class, 'store'])->middleware('auth')->name('tambahBeritaDesaAdmin');
+Route::get('/dashboard/edit-berita-desa/{id}', [BeritaDesaController::class, 'edit'])->middleware('auth')->name('editBeritaDesaAdmin');
+Route::post('/dashboard/edit-berita-desa/{id}', [BeritaDesaController::class, 'update'])->middleware('auth')->name('editBeritaDesaAdmin');
+Route::post('/dashboard/hapus-berita-desa/{id}', [BeritaDesaController::class, 'destroy'])->middleware('auth')->name('hapusBeritaDesaAdmin');
+Route::get('/dashboard/berita-desa/{slug}', [BeritaDesaController::class, 'show'])->middleware('auth')->name('tampilBeritaDesa');
+
+Route::get('/dashboard/berita-desa/slug', [BeritaDesaController::class, 'getSlug']);
