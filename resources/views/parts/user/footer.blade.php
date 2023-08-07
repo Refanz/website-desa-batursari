@@ -22,9 +22,11 @@
                     <i class="bi bi-camera" style="font-size: 2.3rem; color: white;"></i>
                     <p class="text-white ms-2 mt-3">GALERI</p>
                 </div>
-                <img class="footer-galeri" src="{{ asset('assets/images/gunung.jpg') }}" width="110" alt="">
-                <img class="footer-galeri" src="{{ asset('assets/images/gunung.jpg') }}" width="110" alt="">
-                <img class="footer-galeri" src="{{ asset('assets/images/gunung.jpg') }}" width="110" alt="">
+                @isset($galeri)
+                    @for($i = 0; $i < 3; $i++)
+                    <img class="footer-galeri" src="{{ asset('galeri-desa/' . $galeri[$i]->img_galeri_desa) }}" width="110" alt="">
+                    @endfor
+                @endisset
             </div>
         </div>
         <hr class="text-white">

@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GaleriDesa;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
     public function index()
     {
-        return view('pages.user.home', [
-            'title' => 'home',
-            'title2' => ''
+        $dataGaleri = GaleriDesa::all();
+
+        return view('pages.user.home')->with([
+            'galeri' => $dataGaleri
         ]);
     }
 
@@ -74,14 +76,6 @@ class AppController extends Controller
     {
         return view('pages.user.berita-desa', [
             'title' => 'berita-desa',
-            'title2' => ''
-        ]);
-    }
-
-    public function galeri()
-    {
-        return view('pages.user.galeri', [
-            'title' => 'galeri',
             'title2' => ''
         ]);
     }
