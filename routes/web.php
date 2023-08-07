@@ -4,6 +4,7 @@ use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GaleriDesaController;
+use App\Http\Controllers\KegiatanDesaController;
 use App\Http\Controllers\PetaDesaController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\ProfilKepalaDesaController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\ProfilPerangkatDesaController;
 use App\Http\Controllers\SejarahDesaController;
 use App\Http\Controllers\StrukturOrganisasiController;
 use App\Http\Controllers\VisiMisiController;
+use App\Models\KegiatanDesa;
 use Illuminate\Support\Facades\Route;
 
 // Home
@@ -47,7 +49,7 @@ Route::get('/galeri', [GaleriDesaController::class, 'show'])->name('galeri');
 Route::get('/kontak', [AppController::class, 'kontak'])->name('kontak');
 
 // Kegiatan Desa
-Route::get('/kegiatan-desa', [AppController::class, 'kegiatanDesa'])->name('kegiatanDesa');
+Route::get('/kegiatan-desa', [KegiatanDesaController::class, 'show'])->name('kegiatanDesa');
 
 // Login Admin
 Route::get('/login', [AuthController::class, 'index'])->middleware('guest')->name('login');
@@ -58,7 +60,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
 Route::get('/dashboard/berita-desa', [DashboardController::class, 'beritaDesa'])->middleware('auth')->name('beritaDesaAdmin');
-Route::get('/dashboard/kegiatan-desa', [DashboardController::class, 'kegiatanDesa'])->middleware('auth')->name('kegiatanDesaAdmin');
 
 // Visi dan Misi Admin
 Route::get('/dashboard/visi-misi', [VisiMisiController::class, 'showAdmin'])->middleware('auth')->name('visiMisiAdmin');
@@ -100,3 +101,11 @@ Route::post('/dashboard/tambah-galeri-desa', [GaleriDesaController::class, 'stor
 Route::get('/dashboard/edit-galeri-desa/{id}', [GaleriDesaController::class, 'edit'])->middleware('auth')->name('editGaleriDesaAdmin');
 Route::post('/dashboard/edit-galeri-desa/{id}', [GaleriDesaController::class, 'update'])->middleware('auth')->name('editGaleriDesaAdmin');
 Route::post('/dashboard/hapus-galeri-desa/{id}', [GaleriDesaController::class, 'destroy'])->middleware('auth')->name('hapusGaleriDesaAdmin');
+
+// Kegiatan Desa Admin
+Route::get('/dashboard/kegiatan-desa', [KegiatanDesaController::class, 'index'])->middleware('auth')->name('kegiatanDesaAdmin');
+Route::get('/dashboard/tambah-kegiatan-desa', [KegiatanDesaController::class, 'create'])->middleware('auth')->name('tambahKegiatanDesaAdmin');
+Route::post('/dashboard/tambah-kegiatan-desa', [KegiatanDesaController::class, 'store'])->middleware('auth')->name('tambahKegiatanDesaAdmin');
+Route::get('/dashboard/edit-kegiatan-desa/{id}', [KegiatanDesaController::class, 'edit'])->middleware('auth')->name('editKegiatanDesaAdmin');
+Route::post('/dashboard/edit-kegiatan-desa/{id}', [KegiatanDesaController::class, 'update'])->middleware('auth')->name('editKegiatanDesaAdmin');
+Route::post('/dashboard/hapus-kegiatan-desa/{id}', [KegiatanDesaController::class, 'destroy'])->middleware('auth')->name('hapusKegiatanDesaAdmin');

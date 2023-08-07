@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\GaleriDesa;
+use App\Models\KegiatanDesa;
+use App\Models\ProfilDesa;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
@@ -10,9 +12,13 @@ class AppController extends Controller
     public function index()
     {
         $dataGaleri = GaleriDesa::all();
+        $dataKegiatan = KegiatanDesa::all();
+        $dataProfilDesa = ProfilDesa::first();
 
         return view('pages.user.home')->with([
-            'galeri' => $dataGaleri
+            'profilDesa' => $dataProfilDesa,
+            'galeri' => $dataGaleri,
+            'kegiatan' => $dataKegiatan
         ]);
     }
 

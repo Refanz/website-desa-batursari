@@ -23,8 +23,9 @@
                     <p class="text-white ms-2 mt-3">GALERI</p>
                 </div>
                 @isset($galeri)
-                    @for($i = 0; $i < 3; $i++)
-                    <img class="footer-galeri" src="{{ asset('galeri-desa/' . $galeri[$i]->img_galeri_desa) }}" width="110" alt="">
+                    @for($i = 0; $i < $galeri->count(); $i++)
+                    @break($i > 2)
+                        <img class="footer-galeri" src="{{ asset('galeri-desa/' . $galeri[$i]->img_galeri_desa) }}" width="110" alt="">
                     @endfor
                 @endisset
             </div>

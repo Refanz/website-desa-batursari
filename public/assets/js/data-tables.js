@@ -6,3 +6,7 @@ $('#tb-galeri-desa').DataTable({
     responsive: true
 })
 
+$('#tb-kegiatan-desa').DataTable({
+    responsive: true
+})
+
