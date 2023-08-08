@@ -10,3 +10,6 @@ $('#tb-kegiatan-desa').DataTable({
     responsive: true
 })
 
+$('#tb-data-penduduk').DataTable({
+    responsive: true
+})

@@ -37,6 +37,10 @@
                         <div class="sb-nav-link-icon"><i class="bi bi-images"></i></div>
                         Galeri Desa
                     </a>
+                    <a class="nav-link {{ Request::is('dashboard/data-penduduk') ? 'active' : '' }}"  href="{{ route('dataPendudukAdmin') }}">
+                        <div class="sb-nav-link-icon"><i class="bi bi-person-vcard"></i></div>
+                        Data Penduduk
+                    </a>
                 </div>
             </div>
             <div class="sb-sidenav-footer">

@@ -4,6 +4,7 @@ use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaDesaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataPendudukController;
 use App\Http\Controllers\GaleriDesaController;
 use App\Http\Controllers\KegiatanDesaController;
 use App\Http\Controllers\PetaDesaController;
@@ -117,3 +118,9 @@ Route::post('/dashboard/edit-berita-desa/{id}', [BeritaDesaController::class, 'u
 Route::post('/dashboard/hapus-berita-desa/{id}', [BeritaDesaController::class, 'destroy'])->middleware('auth')->name('hapusBeritaDesaAdmin');
 Route::get('/dashboard/berita-desa/{slug}', [BeritaDesaController::class, 'show'])->middleware('auth')->name('tampilBeritaDesa');
 
+Route::get('/dashboard/data-penduduk', [DataPendudukController::class, 'index'])->middleware('auth')->name('dataPendudukAdmin');
+Route::get('dashboard/tambah-data-penduduk', [DataPendudukController::class, 'create'])->middleware('auth')->name('tambahDataPendudukAdmin');
+Route::post('dashboard/tambah-data-penduduk', [DataPendudukController::class, 'store'])->middleware('auth')->name('tambahDataPendudukAdmin');
+Route::get('dashboard/edit-data-penduduk/{id}', [DataPendudukController::class, 'edit'])->middleware('auth')->name('editDataPendudukAdmin');
+Route::post('dashboard/edit-data-penduduk/{id}', [DataPendudukController::class, 'update'])->middleware('auth')->name('editDataPendudukAdmin');
+Route::post('dashboard/hapus-data-penduduk/{id}', [DataPendudukController::class, 'destroy'])->middleware('auth')->name('hapusDataPendudukAdmin');

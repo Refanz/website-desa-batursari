@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BeritaDesa;
+use App\Models\DataPenduduk;
 use App\Models\GaleriDesa;
 use App\Models\ProfilDesa;
 use App\Models\KegiatanDesa;
@@ -16,12 +17,14 @@ class AppController extends Controller
         $dataKegiatan = KegiatanDesa::all();
         $dataProfilDesa = ProfilDesa::first();
         $dataBeritaDesa = BeritaDesa::latest()->get();
+        $dataPenduduk = DataPenduduk::latest()->first();
 
         return view('pages.user.home')->with([
             'profilDesa' => $dataProfilDesa,
             'galeri' => $dataGaleri,
             'kegiatan' => $dataKegiatan,
-            'beritaDesa' => $dataBeritaDesa
+            'beritaDesa' => $dataBeritaDesa,
+            'dataPenduduk' => $dataPenduduk
         ]);
     }
 
