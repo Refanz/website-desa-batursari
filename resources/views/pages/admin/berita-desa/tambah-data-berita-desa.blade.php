@@ -71,7 +71,7 @@
     const slug = document.querySelector('#slug');
 
     title.addEventListener('input', () => {
-        fetch('/dashboard/berita-desa/slug?judul=' +title.value )
+        fetch('/api/dashboard/berita-desa/slug?judul=' +title.value )
             .then(response => response.json())
             .then(data => slug.value = data.slug)
     });

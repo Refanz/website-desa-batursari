@@ -13,7 +13,6 @@ use App\Http\Controllers\ProfilPerangkatDesaController;
 use App\Http\Controllers\SejarahDesaController;
 use App\Http\Controllers\StrukturOrganisasiController;
 use App\Http\Controllers\VisiMisiController;
-use App\Models\KegiatanDesa;
 use Illuminate\Support\Facades\Route;
 
 // Home
@@ -118,4 +117,3 @@ Route::post('/dashboard/edit-berita-desa/{id}', [BeritaDesaController::class, 'u
 Route::post('/dashboard/hapus-berita-desa/{id}', [BeritaDesaController::class, 'destroy'])->middleware('auth')->name('hapusBeritaDesaAdmin');
 Route::get('/dashboard/berita-desa/{slug}', [BeritaDesaController::class, 'show'])->middleware('auth')->name('tampilBeritaDesa');
 
-Route::get('/dashboard/berita-desa/slug', [BeritaDesaController::class, 'getSlug']);
