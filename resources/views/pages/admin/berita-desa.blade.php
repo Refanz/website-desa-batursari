@@ -56,7 +56,7 @@
                                         <button class="btn btn-danger me-2" type="submit" onclick="return confirm('Yakin untuk hapus?')">Hapus</button>
                                     </form>
                                     <a href="{{ route('editBeritaDesaAdmin', $data->id) }}" class="btn btn-primary me-2">Edit</a>
-                                    <a href="{{ route('tampilBeritaDesa', $data->id) }}" class="btn btn-success">Detail</a>
+                                    <a href="{{ route('tampilBeritaDesa', $data->slug) }}" class="btn btn-success">Detail</a>
                                 </div>
                             </td>
                         </tr>

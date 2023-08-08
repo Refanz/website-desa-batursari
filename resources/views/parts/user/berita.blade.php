@@ -14,7 +14,7 @@
                                 <h5 class="card-title">{{ $beritaDesa[$i]->judul }}</h5>
                                 <p class="card-text"><small>{{ $beritaDesa[$i]->created_at }}</small>, <i class="bi bi-person-fill"></i> Admin</p>
                                 <p class="card-text">{{ $beritaDesa[$i]->excerpt }}</p>
-                                <p class="card-link mb-0"><a href="{{ route('tampilBeritaDesa', $beritaDesa[$i]->slug) }}">Read more <i class="bi bi-arrow-right"></i></a></p>
+                                <p class="card-link mb-0"><a href="{{ route('detailBerita', $beritaDesa[$i]->slug) }}">Read more <i class="bi bi-arrow-right"></i></a></p>
                             </div>
                         </div>
                     </div>

@@ -10,7 +10,7 @@
     <img class="mt-2" src="{{ asset('assets/images/visi-misi.png') }}" alt="" width="300px">
 </div>
 
-<div class="visi-misi-desa">
+<div class="visi-misi-desa" style="margin-bottom: 50vh">
     <div class="visi-desa">
         <h5 class="text-center mt-3">VISI DESA</h5>
         <p>@isset($data->visi){{ $data->visi }}@endisset</p>

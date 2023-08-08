@@ -27,6 +27,25 @@ class BeritaDesaController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        if ($query == '' || $query == null) {
+
+            return view('pages.user.berita-desa')->with([
+                'beritaDesa' => BeritaDesa::all()
+            ]);
+        } else {
+
+            $berita = BeritaDesa::whereRaw('LOWER(judul) LIKE ?', ['%' . strtolower($query) . '%'])->get();
+
+            return view('pages.user.berita-desa')->with([
+                'beritaDesa' => $berita
+            ]);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -92,6 +111,24 @@ class BeritaDesaController extends Controller
         $data = BeritaDesa::latest()->get();
 
         return view('pages.user.berita-desa')->with([
+            'beritaDesa' => $data
+        ]);
+    }
+
+    public function showBerita($slug)
+    {
+        $data = BeritaDesa::where('slug', $slug)->first();
+
+        return view('pages.user.detail-berita')->with([
+            'beritaDesa' => $data
+        ]);
+    }
+
+    public function detail($slug)
+    {
+        $data = BeritaDesa::where('slug', $slug)->first();
+
+        return view('pages.admin.berita-desa.tampil-data-berita-desa')->with([
             'beritaDesa' => $data
         ]);
     }
@@ -178,7 +215,7 @@ class BeritaDesaController extends Controller
     }
 
     public function getSlug(Request $request)
-    {   
+    {
         $slug = SlugService::createSlug(BeritaDesa::class, 'slug', $request->judul);
 
         return response()->json([

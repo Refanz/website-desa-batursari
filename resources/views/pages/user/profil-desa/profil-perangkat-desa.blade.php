@@ -6,7 +6,7 @@
 
 <h4 class="fw-bold mb-3">PROFIL PERANGKAT DESA BATURSARI</h4>
 
-@if(isset($dataPerangkatDesa))
+@if($dataPerangkatDesa->count() !== 0)
 <div class="row">
     @foreach ($dataPerangkatDesa as $data)
     <div class="col-md-6">
@@ -46,9 +46,8 @@
     </div>
     @endforeach
 </div>
-
 @else
-    <div style="margin-bottom: 100vh"></div>
+<div style="margin-bottom: 100vh"></div>
 @endif
 
 @endsection
