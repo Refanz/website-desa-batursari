@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('meta-description', 'Profil Desa Batursari')
+
+@section('meta-keywords', 'Profil, Batursari, Desa, Talun, Pekalongan, Kabupaten Pekalongan, Kecamatan Talun')
+
 @section('title', 'Desa Batursari | Profile Desa')
 
 @section('content')

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('meta-description', 'Struktur Organisasi Desa Batursari')
+
+@section('meta-keywords', 'Struktur Organisasi, Batursari, Desa, Talun, Pekalongan, Kabupaten Pekalongan, Kecamatan Talun')
+
 @section('title', 'Desa Batursari | Struktur Organisasi')
 
 @section('content')

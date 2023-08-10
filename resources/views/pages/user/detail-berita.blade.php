@@ -2,6 +2,10 @@
 
 @section('title', $beritaDesa->judul)
 
+@section('meta-description', strip_tags($beritaDesa->body))
+
+@section('meta-keywords', $beritaDesa->judul)
+
 @section('content')
 
 <div class="container">

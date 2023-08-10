@@ -42,7 +42,9 @@
                                 </div>
                             </div>
                             <div class="row mt-3 justify-content-center">
-                                <button class="btn btn-primary w-25" type="submit">Login</button>
+                                <div class="col-md-5">
+                                    <button class="btn btn-primary" type="submit" style="width: 100%">Login</button>
+                                </div>
                             </div>
                         </div>
                     </div>
