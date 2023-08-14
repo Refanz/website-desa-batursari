@@ -127,3 +127,6 @@ Route::post('dashboard/tambah-data-penduduk', [DataPendudukController::class, 's
 Route::get('dashboard/edit-data-penduduk/{id}', [DataPendudukController::class, 'edit'])->middleware('auth')->name('editDataPendudukAdmin');
 Route::post('dashboard/edit-data-penduduk/{id}', [DataPendudukController::class, 'update'])->middleware('auth')->name('editDataPendudukAdmin');
 Route::post('dashboard/hapus-data-penduduk/{id}', [DataPendudukController::class, 'destroy'])->middleware('auth')->name('hapusDataPendudukAdmin');
+
+// Generate Sitemap
+Route::get('/genSet', [AppController::class, 'generateSitemap']);

@@ -8,6 +8,7 @@ use App\Models\GaleriDesa;
 use App\Models\ProfilDesa;
 use App\Models\KegiatanDesa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class AppController extends Controller
 {
@@ -106,5 +107,12 @@ class AppController extends Controller
             'title' => 'kegiatan-desa',
             'title2' => ''
         ]);
+    }
+
+    public function generateSitemap()
+    {
+        Artisan::call('sitemap:generate');
+
+        return "Generate sitemap successfully";
     }
 }
